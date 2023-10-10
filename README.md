@@ -1,5 +1,5 @@
 # Threading Crawler
-採用多執行緒加速網頁爬蟲，以IMDb網站為例。
+採用多執行緒加速網頁爬蟲，以IMDb網站為例
 
 ## Prerequisites
 - Python3, Requests, Beautifulsoup4, Pandas, Pickle
