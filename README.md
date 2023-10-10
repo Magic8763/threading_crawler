@@ -1,18 +1,18 @@
 # Threading Crawler
-採用多執行緒加速網頁爬蟲，以IMDb為例。
+採用多執行緒加速網頁爬蟲，以IMDb網站為例。
 
 ## Prerequisites
 - Python3, Requests, Beautifulsoup4, Pandas, Pickle
 
-## File Description
+## Description
+
+下載 [MovieLens 25M](https://grouplens.org/datasets/movielens/25m) 其中的 movies.csv, links.csv
+- movies.csv: 62423 部電影的特徵資料集，特徵包含 movieId, title, genres (部分有誤)
+- links.csv: 62423 部電影對應的 IMDb 主頁索引
 
 **Program**
-- IMDb_crawler.py: 程式主介面，以範例實驗測試函數功能是否正常
-- movie_feature_scaling.py: 資料前處理，包含資料樣本分組與訓練模型實例
-
-## Dataset
-- [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html)圖片資料集
-  - 包含10個類別各5000筆訓練樣本和1000筆測試樣本
+- movie_linking.py: 合併 movies.csv, links.csv 兩資料集
+- IMDb_crawler.py: 基於每部電影的 IMDb 主頁索引爬取 genres, grade, poster 等新特徵
 
 ## Authors
 * **Chih-Chien Cheng** - (categoryv@cycu.org.tw)
