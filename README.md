@@ -12,7 +12,7 @@
 
 **Program**
 - movie_linking.py: 合併 movies.csv, links.csv 兩資料集
-- IMDb_crawler.py: 基於每部電影的 IMDb 主頁索引爬取 genres, grade, poster 等新特徵
+- IMDb_crawler.py: 基於每部電影的 IMDb 主頁索引爬取 year, genres, grade, poster 等新特徵
 
 ## Authors
 * **Chih-Chien Cheng** - (categoryv@cycu.org.tw)
