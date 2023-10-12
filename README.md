@@ -5,14 +5,16 @@
 - Python3, Requests, Beautifulsoup4, Pandas, Pickle
 
 ## Description
+- movie_linking.py: 整合電影特徵資料集與 IMDb 主頁索引
+- IMDb_crawler.py: 基於每部電影的主頁索引，以 Python threading 模組同時爬取複數網頁內容
 
-下載 [MovieLens 25M](https://grouplens.org/datasets/movielens/25m) 其中的 movies.csv 和 links.csv。
-- movies.csv: 62423 部電影的特徵資料集，每部電影包含 movieId, title, genres 等特徵（部分有誤或缺漏）
-- links.csv: 62423 部電影對應的 IMDb 主頁索引
+## Dataset
+- [MovieLens 25M](https://grouplens.org/datasets/movielens/25m) 其中的 movies.csv 和 links.csv
+  - movies.csv: 62423 部電影資料集，每部電影特徵包含 movieId, title, genres 等特徵（部分有誤或缺漏）
+  - links.csv: 62423 部電影分別對應的 IMDb 主頁索引
 
-**Program**
-- movie_linking.py: 合併 movies.csv, links.csv 兩資料集
-- IMDb_crawler.py: 基於每部電影的 IMDb 主頁索引爬取 year, genres, grade, poster 等新特徵
+## Output
+- movies_extended.csv: 除了 movies.csv, links.csv 的原始特徵，額外補充 year, genres, grade, picture 等新特徵
 
 ## Authors
 * **Chih-Chien Cheng** - (categoryv@cycu.org.tw)
