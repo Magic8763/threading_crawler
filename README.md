@@ -10,8 +10,8 @@
 
 ## Dataset
 - [MovieLens 25M](https://grouplens.org/datasets/movielens/25m) 其中的 movies.csv 和 links.csv
-  - movies.csv: 62423 部電影資料集，每部電影特徵包含 movieId, title, genres 等特徵（部分有誤或缺漏）
-  - links.csv: 62423 部電影分別對應的 IMDb 主頁索引
+  - movies.csv: 電影特徵資料集，包含 62423 部相異電影，每部電影具有 movieId, title, genres 等特徵（部分有誤或缺漏）
+  - links.csv: 每部部電影分別對應的 IMDb 主頁索引
 
 ## Output
 - movies_extended.csv: 除了 movies.csv, links.csv 的原始特徵，額外補充 year, genres, grade, picture 等新特徵
