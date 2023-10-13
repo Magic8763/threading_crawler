@@ -6,7 +6,7 @@
 
 ## Description
 - movie_linking.py: 整合電影特徵資料集與 IMDb 主頁索引
-- IMDb_crawler.py: 基於每部電影的主頁索引，以 Python threading 模組同時爬取複數網頁內容
+- IMDb_crawler.py: 基於每部電影的主頁索引，以 Python Threading 模組同時爬取複數網頁內容
 
 ## Dataset
 - [MovieLens 25M](https://grouplens.org/datasets/movielens/25m) 其中的 movies.csv 和 links.csv 兩個電影特徵資料集
