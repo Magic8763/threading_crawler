@@ -2,7 +2,7 @@
 採用多執行緒加速網頁爬蟲，以 IMDb 網站為例。
 
 ## Prerequisites
-- Python3, Requests, Beautifulsoup4, Pandas, Pickle
+- Python3, Requests, Beautifulsoup4, Pandas
 
 ## Description
 - movie_linking.py: 整合電影特徵資料集與 IMDb 主頁索引
@@ -14,7 +14,7 @@
   - links.csv: 每部電影分別對應的 IMDb 主頁索引
 
 ## Output
-- movies_extended.csv: 保留 movies.csv, links.csv 的原始特徵並額外加入 year, genres, grade, picture 等新特徵
+- movies_extended.csv: 保留 movies.csv 和 links.csv 的原始特徵並額外加入 year, genres, grade, picture 等新特徵
 
 ## Authors
 * **Chih-Chien Cheng** - (categoryv@cycu.org.tw)
