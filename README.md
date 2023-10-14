@@ -1,5 +1,5 @@
 # Threading Crawler
-![shields](https://img.shields.io/badge/python-3.11%2B-blue.svg?style=flat-square) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT) ![](https://img.shields.io/github/stars/Magic8763/threading_crawler.svg) ![](https://img.shields.io/github/forks/Magic8763/threading_crawler.svg)
+![](https://img.shields.io/github/stars/Magic8763/threading_crawler.svg) ![](https://img.shields.io/github/watchers/Magic8763/threading_crawler.svg) ![](https://img.shields.io/github/forks/Magic8763/threading_crawler.svg)
 
 採用多執行緒加速網頁爬蟲，以 IMDb 網站為例。
 
