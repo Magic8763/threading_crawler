@@ -1,5 +1,7 @@
 # Threading Crawler
-![](https://img.shields.io/github/stars/Magic8763/threading_crawler) ![](https://img.shields.io/github/watchers/Magic8763/threading_crawler) ![](https://img.shields.io/github/forks/Magic8763/threading_crawler)
+![](https://img.shields.io/github/stars/magic8763/threading_crawler)
+![](https://img.shields.io/github/watchers/magic8763/threading_crawler)
+![](https://img.shields.io/github/forks/magic8763/threading_crawler)
 
 採用多執行緒加速網頁爬蟲，以 IMDb 網站為例。
 
