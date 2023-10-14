@@ -18,7 +18,7 @@
   - `links.csv`: 每部電影分別對應的 IMDb 主頁索引
 
 ## Output
-- `movies_extended.csv`: 保留 `movies.csv` 和 `links.csv` 的原始特徵並額外加入 year, genres, grade, picture 等新特徵
+- `movies_extended.csv`: 保留 `movies.csv` 和 `links.csv` 的原始特徵，再追加 year, genres, grade, picture 等新特徵
 
 ## Authors
 * **[Magic8763](https://github.com/Magic8763)**
