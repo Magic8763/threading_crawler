@@ -126,7 +126,7 @@ class IMDb_crawler:
 # In[main]:
 
 if __name__ == "__main__":
-    # linking() # 合併movies.csv, links.csv
+    linking() # 合併movies.csv, links.csv
     movies = pd.read_csv('movies_linked.csv', sep = ',') # 62423部電影
     imdbId_list = list(movies['imdbId'])
     crawler = IMDb_crawler(imdbId_list)

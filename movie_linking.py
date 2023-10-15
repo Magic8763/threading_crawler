@@ -1,31 +1,42 @@
 
 import pandas as pd
 
-def split_title_and_year(s): # 分割片名與年份
+def fix_the_problem(s):
+    parts = s.split('(')
+    s = parts[0]
+    while s and s[-1] == ' ':
+        s = s[:-1]
+    if s[-5:] == ', The': # 將'title, The'修正為'The title'
+        s = 'The '+s[:-5]
+    if len(parts) == 2:
+        s += ' ('+parts[1]
+    return s
+
+def split_title_and_year(s, fixed = False): # 分割片名與年份
     n = len(s)
     for left in range(n-1, -1, -1):
         if s[left] == '(':
+            year = ''
+            for c in s[left+1:]:
+                if c.isdigit():
+                    year += c
+                if len(year) == 4 and year[0] in ('1', '2'):
+                    s = s[:left]
+                    while s and s[-1] == ' ':
+                        s = s[:-1]
+                    if fixed:
+                        s = fix_the_problem(s)
+                    return [s, year]
             break
-    else:
-        return [s, 'unknown']
-    year = ''
-    for c in s[left+1:]:
-        if c.isdigit():
-            year += c
-        if len(year) == 4 and year[0] in ('1', '2'):
-            break
-    else:
-        return [s, 'unknown']
-    s = s[:left]
-    while s and s[-1] == ' ':
-        s = s[:-1]
-    return [s, year]
+    if fixed:
+        s = fix_the_problem(s)
+    return [s, 'unknown']
 
 def linking():
     movies = pd.read_csv('ml-25m/movies.csv', sep = ',') # 62423部電影, 原始genres欄位有誤
-    movies[['title', 'year']] = movies['title'].apply(lambda x: pd.Series(split_title_and_year(x)))
+    movies[['title', 'year']] = movies['title'].apply(lambda x: pd.Series(split_title_and_year(x, True)))
     movies['letters'] = movies['title'].apply(lambda x: x.lower().replace(' ', ''))
-    movies = movies[['movieId', 'title', 'letters', 'year']]
+    movies = movies[['movieId', 'title', 'letters', 'year']] # 分割後year欄位仍有缺漏
 
     links = pd.read_csv('ml-25m/links.csv', sep = ',')
     """
