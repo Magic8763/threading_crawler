@@ -3,7 +3,7 @@
 ![](https://img.shields.io/github/watchers/magic8763/threading_crawler)
 ![](https://img.shields.io/github/forks/magic8763/threading_crawler)
 
-採用多執行緒加速網頁爬蟲，以 IMDb 網站為例。
+採用 Python 多執行緒模組加速網頁爬蟲，以 IMDb 網站為例。
 
 ## Prerequisites
 - Python3, Requests, Beautifulsoup4, Pandas
