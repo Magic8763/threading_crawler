@@ -10,6 +10,8 @@ def fix_the_problem(s):
         s = 'The '+s[:-5]
     if len(parts) == 2:
         s += ' ('+parts[1]
+    s = s.replace('“', '"') # 統一雙引號
+    s = s.replace('”', '"')
     return s
 
 def split_title_and_year(s, fixed = False): # 分割片名與年份

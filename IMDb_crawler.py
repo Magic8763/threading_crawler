@@ -69,7 +69,7 @@ class IMDb_crawler:
     def crawl_IMDb(self, i, show_text=False): # 子執行緒的工作函數, 注意無法return
         url = main_page+self.imdbId_list[i]
         request = requests.get(url, headers=header_example, timeout=10)
-        html = BeautifulSoup(request.text, 'html.parser')
+        html = BeautifulSoup(request.text, 'html.parser') # 解析網頁的HTML
         links = html.find_all('meta')
         text, img = '', ''
         for link in links:
