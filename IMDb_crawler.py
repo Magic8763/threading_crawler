@@ -69,15 +69,24 @@ class IMDb_crawler:
     def crawl_IMDb(self, i, show_text=False): # 子執行緒的工作函數, 注意無法return
         url = main_page+self.imdbId_list[i]
         request = requests.get(url, headers=header_example, timeout=10)
-        html = BeautifulSoup(request.text, 'html.parser') # 解析網頁的HTML
-        links = html.find_all('meta')
+        html = BeautifulSoup(request.text, 'html.parser') # 解析HTML網頁
+        links = html.find_all('meta') # 所有包含'meta'標籤的元素
         text, img = '', ''
         for link in links:
             if 'property' in link.attrs:
                 if link.attrs['property'] == 'og:title':
-                    text = link.attrs['content']
+                    text = link.attrs['content'] # 電影"片名(年份)*星數|類型"的字串
                 if link.attrs['property'] == 'og:image':
-                    img = link.attrs['content']
+                    img = link.attrs['content'] # 電影海報的url
+                if text and img:
+                    break
+        """
+        text = html.find('meta', attrs={'property': 'og:title'}) # 電影"片名(年份)*星數|類型"的字串
+        # <meta content="玩具總動員 (1995) ⭐ 8.3 | Animation, Adventure, Comedy" property="og:title"/>
+        img = html.find('meta', attrs={'property': 'og:image'}) # 電影海報的url
+        # <meta content="url" property="og:image"/>
+        text, img = str(text)[15:-23], str(img)[15:-23]
+        """
         if len(text) == 0:
             return
         if show_text:
@@ -103,15 +112,18 @@ class IMDb_crawler:
             time.sleep(1)
 
     def crawl_threads(self, begin, batch_size, thread_count, target_idx=[], show_text=False):
-        threads = []
         if not target_idx:
             target_idx = list(range(self.n))
         start_t = time.time()
-        for i in range(thread_count): # 建立15個子執行緒
-            start = begin+i*batch_size
+        threads = []
+        for i in range(thread_count): # 建立10個子執行緒
+            start = begin+i*batch_size # 爬取範圍
             end = start+batch_size
-            threads.append(threading.Thread(target=self.threading_crawler, args=(target_idx[start:end], show_text)))
-            threads[i].start()
+            threads.append(threading.Thread(
+                target=self.threading_crawler, # 子執行緒目標函數
+                args=(target_idx[start:end], show_text)) # 目標函數的參數
+            )
+            threads[i].start() # 子執行緒開始運行
         for j in range(thread_count): # 等待所有子執行緒結束
             threads[j].join()
         end_t = time.time()
